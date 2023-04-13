@@ -1,0 +1,32 @@
+abase - Aba's tools
+===================
+
+abase is a collection of tools that didn't fit into ubase or sbase.
+
+Currently it contains the following:
+- a very simple more
+
+Note: abase is a shameless copy of sbase/ubase in certain areas like
+the Makefile, libutil, etc. This might also make an integration into
+sbase/ubase easier.
+
+Building
+--------
+
+To build abase, simply type make. You may have to fiddle with config.mk
+depending on your system.
+
+You can also build abase-box, which generates a single binary containing
+all the required tools. You can then symlink the individual tools to
+abase-box or run: make abase-box-install
+
+Ideally you will want to statically link abase. If you are on Linux we
+recommend using musl-libc[1].
+
+Portability
+-----------
+
+Not really tested so far, but you should be able to build it with
+gcc, clang, tcc, nwcc and pcc.
+
+[1] http://www.musl-libc.org/
