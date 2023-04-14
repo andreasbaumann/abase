@@ -40,11 +40,9 @@ $(LIBUTIL): $(LIBUTILOBJ)
 install: all
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
 	cp -f $(BIN) $(DESTDIR)$(PREFIX)/bin
-	mv -f $(DESTDIR)$(PREFIX)/bin/xinstall $(DESTDIR)$(PREFIX)/bin/install
 	mkdir -p $(DESTDIR)$(MANPREFIX)/man1
 	for m in $(MAN); do sed "s/^\.Os abase/.Os abase $(VERSION)/g" < "$$m" > $(DESTDIR)$(MANPREFIX)/man1/"$$m"; done
 	cd $(DESTDIR)$(MANPREFIX)/man1 && chmod 644 $(MAN)
-	mv -f $(DESTDIR)$(MANPREFIX)/man1/xinstall.1 $(DESTDIR)$(MANPREFIX)/man1/install.1
 
 uninstall:
 	cd $(DESTDIR)$(PREFIX)/bin && rm -f $(BIN)
@@ -84,7 +82,6 @@ abase-box-install: abase-box
 	mkdir -p $(DESTDIR)$(MANPREFIX)/man1
 	for m in $(MAN); do sed "s/^\.Os abase/.Os abase $(VERSION)/g" < "$$m" > $(DESTDIR)$(MANPREFIX)/man1/"$$m"; done
 	cd $(DESTDIR)$(MANPREFIX)/man1 && chmod 644 $(MAN)
-	mv -f $(DESTDIR)$(MANPREFIX)/man1/xinstall.1 $(DESTDIR)$(MANPREFIX)/man1/install.1
 
 abase-box-uninstall: uninstall
 	cd $(DESTDIR)$(PREFIX)/bin && rm -f abase-box
