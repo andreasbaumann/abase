@@ -14,7 +14,8 @@ LIBUTILSRC =\
 LIB = $(LIBUTF) $(LIBUTIL)
 
 BIN =\
-	more
+	more\
+	hexdump
 
 LIBUTILOBJ = $(LIBUTILSRC:.c=.o)
 OBJ = $(BIN:=.o) $(LIBUTFOBJ) $(LIBUTILOBJ)

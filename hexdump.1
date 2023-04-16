@@ -1,0 +1,27 @@
+.Dd 2023-04-14
+.Dt HEXDUMP 1
+.Os abase
+.Sh NAME
+.Nm hexdump
+.Nd display file contents in hex and/or ASCII
+.Sh SYNOPSIS
+.Nm
+.Sh DESCRIPTION
+.Nm
+prints hexadecimal dump of
+.Ar path
+to stdout.
+.Nm
+.Sh OPTIONS
+.sp
+.RE
+\fB\-C\fP
+.RS 4
+Canonical hex+ASCII format. 16 bytes per line, print hex code area on
+the left and printable characters on the right.
+.RE
+.sp
+\fB\-v\fP
+.RS 4
+Display all data, no squezing of consecutive identical lines of bytes.
+

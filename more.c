@@ -30,8 +30,9 @@ main(int argc, char *argv[])
 		usage();
 	} ARGEND
 
-	if (argc < 1 && isatty(STDIN_FILENO))
+	if (argc < 1 && isatty(STDIN_FILENO)) {
 		usage();
+	}
 	
 	if (isatty(STDIN_FILENO)) {
 		if ((fd = open(*argv, O_RDONLY)) < 0) {
