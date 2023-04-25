@@ -15,7 +15,8 @@ LIB = $(LIBUTF) $(LIBUTIL)
 
 BIN =\
 	more\
-	hexdump
+	hexdump\
+	ifconfig
 
 LIBUTILOBJ = $(LIBUTILSRC:.c=.o)
 OBJ = $(BIN:=.o) $(LIBUTFOBJ) $(LIBUTILOBJ)

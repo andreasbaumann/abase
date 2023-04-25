@@ -8,6 +8,7 @@ Currently it contains the following:
 - a simple 'hexdump'
 - a 'fdisk' (but we have to decide for which kind of partition types
   and what kind of operations, could be too big)
+- a 'ifconfig'
 
 Note: abase is a shameless copy of sbase/ubase in certain areas like
 the Makefile, libutil, etc. This might also make an integration into
@@ -32,4 +33,18 @@ Portability
 Not really tested so far, but you should be able to build it with
 gcc, clang, tcc, nwcc and pcc.
 
+Bugs and Questions
+------------------
+
+- more
+  - even non-line keyboard input is not portable
+  - how to enable terminal formatting like bold and make things not
+    depend on ncurses/termcap?
+- ifconfig
+  - implementations
+    - GNU net-tools
+    - net-3-tools
+    - nosh
+  - netlink api or ioctls
+    
 [1] http://www.musl-libc.org/
