@@ -217,23 +217,23 @@ main(int argc, char *argv[])
 			}
 			if_freenameindex(interfaces);
 		}
-	}
-	
-	if (argc == 1) {
-		print_interface(argv[0]);
-	} else if (argc == 2) {
-		int up;
-		if (strcmp(argv[1], "up") == 0) {
-			up = 1;
-		} else if (strcmp(argv[1], "down") == 0) {
-			up = 0;
+	} else {
+		if (argc == 1) {
+			print_interface(argv[0]);
+		} else if (argc == 2) {
+			int up;
+			if (strcmp(argv[1], "up") == 0) {
+				up = 1;
+			} else if (strcmp(argv[1], "down") == 0) {
+				up = 0;
+			} else {
+				weprintf("Expecting 'up' or 'down'\n");
+				usage();
+			}
+			set_up_down(argv[0], up);
 		} else {
-			weprintf("Expecting 'up' or 'down'\n");
 			usage();
 		}
-		set_up_down(argv[0], up);
-	} else {
-		usage();
 	}
 	
 	return 0;
