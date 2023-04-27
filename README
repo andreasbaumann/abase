@@ -8,7 +8,9 @@ Currently it contains the following:
 - a simple 'hexdump'
 - a 'fdisk' (but we have to decide for which kind of partition types
   and what kind of operations, could be too big)
-- a 'ifconfig'
+- a 'ifconfig': show and configure simple interfaces
+- a 'ping': test a network connection
+- a 'netstat': see list of active connections of a machine
 
 Note: abase is a shameless copy of sbase/ubase in certain areas like
 the Makefile, libutil, etc. This might also make an integration into
