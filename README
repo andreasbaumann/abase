@@ -11,6 +11,8 @@ Currently it contains the following:
 - a 'ifconfig': show and configure simple interfaces
 - a 'ping': test a network connection
 - a 'netstat': see list of active connections of a machine
+- 'mkswap'
+- 'fsck.ext4', 'mkfs.ext4': if ext4 is the only file system we support
 
 Note: abase is a shameless copy of sbase/ubase in certain areas like
 the Makefile, libutil, etc. This might also make an integration into
@@ -48,5 +50,12 @@ Bugs and Questions
     - net-3-tools
     - nosh
   - netlink api or ioctls
-    
+
+References
+----------
+
+- ping:
+  - https://www.geeksforgeeks.org/ping-in-c/
+  - Stevens Network Programming, Vol. 1
+      
 [1] http://www.musl-libc.org/
