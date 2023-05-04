@@ -174,9 +174,13 @@ main(int argc, char *argv[])
 
 		unsigned int address_len = sizeof(sending_address);
 		if (recvfrom(fd, &packet, sizeof(packet), 0, (struct sockaddr *)&sending_address, &address_len) <= 0) {
-			freeaddrinfo(addresses);
-			close(fd);
-			eprintf("Unable to receive packet from '%s': %s\n", host, strerror(errno));			
+			if (errno == EAGAIN || errno == EINTR) {
+				// ok, not reachable or interrupted by Ctrl-C
+			} else {
+				freeaddrinfo(addresses);
+				close(fd);
+				eprintf("Unable to receive packet from '%s': %s\n", host, strerror(errno));
+			}
 		} else {
 			if (sent) {
 				if (packet.header.type != 69 || packet.header.code != 0) {
