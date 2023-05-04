@@ -159,6 +159,9 @@ main(int argc, char *argv[])
 		counter++;
 
 		sleep(1);
+		if (terminate) {
+			continue;
+		}
 
 		clock_gettime(CLOCK_MONOTONIC, &time_start);
 		
@@ -169,7 +172,7 @@ main(int argc, char *argv[])
 			sent = 1;
 		}
 
-		int address_len = sizeof(sending_address);
+		unsigned int address_len = sizeof(sending_address);
 		if (recvfrom(fd, &packet, sizeof(packet), 0, (struct sockaddr *)&sending_address, &address_len) <= 0) {
 			freeaddrinfo(addresses);
 			close(fd);
@@ -182,15 +185,13 @@ main(int argc, char *argv[])
 					eprintf("Received unknown ICMP package with code=%d and type=%d from '%s'",
 						packet.header.code, packet.header.type, host);
 				} else {
-					char sending_ip_addr[INET_ADDRSTRLEN];
-					//~ struct sockaddr_in* addr = (struct sockaddr_in*)&sending_address;
 					inet_ntop(AF_INET, &sending_address.sin_addr, ip_addr, INET_ADDRSTRLEN);
 
 					clock_gettime(CLOCK_MONOTONIC, &time_end);
 					double timeElapsed = ((double)(time_end.tv_nsec - time_start.tv_nsec)) / 1000000.0;
 					long double rtt_msec = (time_end.tv_sec - time_start.tv_sec) * 1000.0 + timeElapsed;
 
-					printf("%d bytes from %s (%s): icmp_seq=%d ttl=%d time=%0.3Lf ms\n",
+					printf("%ld bytes from %s (%s): icmp_seq=%d ttl=%d time=%0.3Lf ms\n",
 						sizeof(packet), host, ip_addr, counter, ttl_val, rtt_msec);
 					received++;
 				}
@@ -200,7 +201,7 @@ main(int argc, char *argv[])
 	
 	printf("--- %s ping statistics ---\n"
 		"%d packets transmitted, %d received , %0.0f%% packet loss\n",
-		host, counter, received,
+		canon_host, counter, received,
 		((counter - received)/counter) * 100.0); 
 
 	freeaddrinfo(addresses);
