@@ -11,10 +11,15 @@ Currently it contains the following:
 - a 'ifconfig': show and configure simple interfaces
 - a 'ping': test a network connection
 - a 'netstat': see list of active connections of a machine
-- 'mkswap'
+- a 'mkswap': swapon/swapoff exist, so we should also be able to create
+  a swap
 - 'fsck.ext4', 'mkfs.ext4': if ext4 is the only file system we support
 - 'nbd-client': for NBD root mounts
-
+- 'rmmod': 'insmod/lsmod' exists in ubase, removing is important to
+  play with hardware. dependencies can also be done from the text
+  modules.dep file and a samurai or simplistic make, 'modprobe' as
+  shell wrapper on dependencies and insmod calls
+  
 Note: abase is a shameless copy of sbase/ubase in certain areas like
 the Makefile, libutil, etc. This might also make an integration into
 sbase/ubase easier.
