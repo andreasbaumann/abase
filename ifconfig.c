@@ -221,16 +221,14 @@ main(int argc, char *argv[])
 		if (argc == 1) {
 			print_interface(argv[0]);
 		} else if (argc == 2) {
-			int up;
 			if (strcmp(argv[1], "up") == 0) {
-				up = 1;
+				set_up_down(argv[0], 1);
 			} else if (strcmp(argv[1], "down") == 0) {
-				up = 0;
+				set_up_down(argv[0], 0);
 			} else {
 				weprintf("Expecting 'up' or 'down'\n");
 				usage();
 			}
-			set_up_down(argv[0], up);
 		} else {
 			usage();
 		}
