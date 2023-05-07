@@ -17,7 +17,8 @@ BIN =\
 	more\
 	hexdump\
 	ifconfig\
-	ping
+	ping\
+	rmmod
 
 LIBUTILOBJ = $(LIBUTILSRC:.c=.o)
 OBJ = $(BIN:=.o) $(LIBUTFOBJ) $(LIBUTILOBJ)
