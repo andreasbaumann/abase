@@ -6,13 +6,27 @@
 .Nd inspect and manipulate network settings
 .Sh SYNOPSIS
 .Nm
+[-a] [interface] [options]
+.Nm
+interface link [up|down]
 .Sh DESCRIPTION
 .Nm
 .Sh OPTIONS
 .sp
 .RE
-\fB\-a\fP
+\fB-a\fP
 .RS 4
 Show all network interfaces and configurations
 .RE
+.sp
+\fBinterface\fP
+.RS 4
+The name of the interface, for instance \fBeth0\fP.
+.RE
+.sp
+\fBdown|up\fP
+.RS 4
+Set the interfacde \fBup\fP or \fBdown\fP.
+.RE
+
 

@@ -1,4 +1,4 @@
-.Dd 2023-04-24
+.Dd 2023-05-07
 .Dt PING 1
 .Os abase
 .Sh NAME
@@ -6,7 +6,9 @@
 .Nd tests reachability of a host on the network
 .Sh SYNOPSIS
 .Nm
+{destination}
 .Sh DESCRIPTION
 .Nm
-.Sh OPTIONS
-.sp
+ping sends an ICMP ECHO_REQUEST to a host and waits for the answer by
+the host. It prints each second information (if the host is reachable)
+and terminates and prints statistics if the user pressed Ctrl-C.

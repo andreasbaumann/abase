@@ -6,22 +6,23 @@
 .Nd display file contents in hex and/or ASCII
 .Sh SYNOPSIS
 .Nm
+[-Cv] {file}
 .Sh DESCRIPTION
 .Nm
 prints hexadecimal dump of
-.Ar path
+.Ar file
 to stdout.
-.Nm
 .Sh OPTIONS
 .sp
 .RE
 \fB\-C\fP
 .RS 4
 Canonical hex+ASCII format. 16 bytes per line, print hex code area on
-the left and printable characters on the right.
+the left and printable characters on the right (this is the default).
 .RE
 .sp
 \fB\-v\fP
 .RS 4
-Display all data, no squezing of consecutive identical lines of bytes.
+Display all data, no squezing of consecutive identical lines of bytes
+(this is the default).
 
