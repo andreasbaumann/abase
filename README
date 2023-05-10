@@ -18,7 +18,9 @@ Currently it contains the following:
   play with hardware. dependencies can also be done from the text
   modules.dep file and a samurai or simplistic make, 'modprobe' as
   shell wrapper on dependencies and insmod calls
-  
+- 'stty' maybe for setting line serial parameters
+- 'top': a really simple one
+
 Note: abase is a shameless copy of sbase/ubase in certain areas like
 the Makefile, libutil, etc. This might also make an integration into
 sbase/ubase easier.
