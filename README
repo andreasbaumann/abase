@@ -64,5 +64,6 @@ References
 - ping:
   - https://www.geeksforgeeks.org/ping-in-c/
   - Stevens Network Programming, Vol. 1
+  - OpenBSD ping.c
       
 [1] http://www.musl-libc.org/
